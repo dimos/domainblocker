@@ -5,11 +5,13 @@
 	-2) Δίνετε για μια και μόνο φορά:
 		 chmod +x domainblocker.py
 	    Και για να τρέχετε το πρόγραμμα:
-		 ./domainblocker.py
+		 sudo ./domainblocker.py
 	-3) Μπορείτε να τοποθετήσετε το πρόγραμμα σε μια global τοποθεσία ώστε να είναι δυνατό να το τρέξετε πληκτρολογώντας:
 		 domainblocker
 	    Για να το κάνετε αυτό δώστε απλώς:
 		 sudo cp ~/domainblocker.py /usr/local/bin/domainblocker
+		 και έπειτα:
+		 sudo chmod +x /usr/local/bin/domainblocker
 	    Και για να το τρέχετε κάθε φορά:
-		 domainblocker
+		 sudo domainblocker
 Τα παραπάνω παραδείγματα ισχύουν αν έχετε το πρόγραμμα με όνομα domainblocker.py μέσα στο home σας.Αν θέλετε να χρησιμοποιήτε κάποιο άλλο όνομα απλώς κάντε μετονομασία το αρχείο και αντικαταστήστε στα παραδείγματα το "domainblocker.py" με το όνομα που έχετε ορίσει στο αρχείο.
