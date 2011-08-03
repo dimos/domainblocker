@@ -80,6 +80,20 @@ def unblock():
 	fout.close()
 
 def backup_list():
+	blist_name = input("Εισάγετε το επιθυμητό όνομα για εξαγωγή του αρχείου backup: ")
+	if ' ' in blist_name:
+		blist_name = blist_name.replace(' ','_')
+	bl_header = "touch ~/"
+	bl_footer = blist_name
+	bl_cmd = bl_header + bl_footer
+	os.system(bl_cmd)
+	bcmd = "cp /etc/hosts ~/" + blist_name
+	if os.system(bcmd) == 0:
+		print("Η δημιουργεία του αρχείου backup ολοκληρώθηκε πλήρως στο: ~/{0} (home) .".format(blist_name))
+	else:
+		print("Υπήρξε σφάλμα κατά την δημιουργεία του αρχείου.")
+
+def recover_list():
 	backup_file = input("Εισάγετε το όνομα του αρχείου με τα μπλοκαρισμένα sites: ")
 	srt_sites_to_backup = input("Εισάγετε τον αριθμό τον μπλοκαρισμένων sites που θέλετε να επαναφέρετε: ")
 	backup_cmd_head = "cd ~ && sudo tail -"
@@ -112,18 +126,22 @@ def main():
 	os.system("clear")
 	print("\n---ΜΕΝΟΥ---\n")
 	menuc = int(input("1. Μπλοκάρετε κάποιο site \n2. Διαγραφή μπλοκαρισμένου site\
-	 \n3. Επαναφορά λίστας μπλοκαρισμένων sites \n4. Πληροφορίες \n\n0. Έξοδος\
+	 \n3. Κρατήστε Backup των μπλοκαρισμένων sites \n4. Επαναφορά λίστας μπλοκαρισμένων sites\
+	  \n5. Πληροφορίες \n\n0. Έξοδος\
 	  \nΔώστε τον αριθμό της επιλογής σας: "))
 	if menuc == 1:
 		block_site()
 
 	elif menuc == 2:
 		unblock()
-
+	
 	elif menuc == 3:
 		backup_list()
-		
+
 	elif menuc == 4:
+		recover_list()
+		
+	elif menuc == 5:
 		dbinfo()
 		input()
 		main()
