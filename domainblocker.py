@@ -46,7 +46,7 @@ def block_site():
 			site2bblocked=`zenity --entry \
 				--title="Block Site" \
 				--text="Εισάγετε την διεύθυνση που θέλετε να μπλοκάρετε.
-	ΧΩΡΊΣ http:// !!!"`
+	με www μπροστά και χωρίς http:// !"`
 			if [ $site2bblocked ]
 			then
 				another=`zenity --list \
@@ -95,17 +95,31 @@ def backup_list():
 
 def recover_list():
 	backup_file = input("Εισάγετε το όνομα του αρχείου με τα μπλοκαρισμένα sites: ")
-	srt_sites_to_backup = input("Εισάγετε τον αριθμό τον μπλοκαρισμένων sites που θέλετε να επαναφέρετε: ")
-	backup_cmd_head = "cd ~ && sudo tail -"
-	backup_cmd_footer = " " + backup_file + " >> /etc/hosts"
-	os.system(backup_cmd_head + srt_sites_to_backup + backup_cmd_footer)
+	os.system("cd ~")
+	f = open(backup_file, "r" )
+	data_list = [data for data in open(backup_file, "r" )]
+	f.close()
+	line_find = "ff02::2 ip6-allrouters" + "\n"
+	i=0
+	while data_list[i] != line_find:
+		i=i+1
+	del(data_list[0:i+1])
+	fout = open(backup_file, "w")
+	fout.writelines(data_list)
+	fout.close()
+	recover_backup_sites_cmd = "sudo cat ~/" + backup_file + " >> /etc/hosts"
+	if os.system(recover_backup_sites_cmd) == 0:
+		print("Η διαδικασία ολοκηρώθηκε.Τα παρακάτω sites επισιμάνθηκαν ως μπλοκαρισμένα:")
+		backup_file = backup_file.replace('127.0.0.1 ','')
+		progc = "cat " + backup_file
+		os.system(progc)
 
 def dbinfo():
 	os.system("clear")
 	print('''
 DOMAIN BLOCKER  (Μπλοκάρετε ιστοσελίδες)
 -----------------------------------------------------------------------------
-Δήμος Πούπος                                                 Έκδοση: 1.5
+Δήμος Πούπος                                                 Έκδοση: 2.0
 -----------------------------------------------------------------------------
 
 Με την παρών εφαρμογή μπορείτε να μπλοκάρετε διάφορες ιστοσελίδες ώστε να,
