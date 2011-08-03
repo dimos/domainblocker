@@ -31,11 +31,11 @@ def cp_progress(fdest):
 	cp_footer = fdest
 	cpcmd = cp_header + cp_footer
 	os.system(cpcmd)
-	perm_ch = "sudo chmod +x /usr/local/bin" + fdest
+	perm_ch = "sudo chmod +x /usr/local/bin/" + fdest
 	os.system(perm_ch)
 	os.system("clear")
 	print("[Η διαδικασία ολοκληρώθηκε!]")
-	print("Για να τρέξετε το πρόγραμμα δώστε: sudo ",fdest)
+	print("Για να τρέξετε το πρόγραμμα δώστε: sudo",fdest)
 
 def main():
 	os.system("clear")
