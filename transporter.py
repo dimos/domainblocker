@@ -33,6 +33,7 @@ def cp_progress(fdest):
 	os.system(cpcmd)
 	perm_ch = "sudo chmod +x /usr/local/bin/" + fdest
 	os.system(perm_ch)
+	os.system("sudo apt-get install zenity")
 	os.system("clear")
 	print("[Η διαδικασία ολοκληρώθηκε!]")
 	print("Για να τρέξετε το πρόγραμμα δώστε: sudo",fdest)
