@@ -1,6 +1,6 @@
 Το domainblocker είναι ένα απλό Python script.Για να τρέξει χρειάζεται τον intepreter της Python3 την οποία μπορείτε να εγκαταστήσετε με την παρακάτω εντολή:
 	sudo apt-get install python3
-Αν το τοποθετήσετε μέσα στο /home με όνομα domainblocker.py σας τότε μπορείτε να το τρέχετε κάθε φορά με 3 τρόπους:
+Αν τοποθετήσετε μέσα στο /home το αρχείο με όνομα domainblocker.py σας τότε μπορείτε να το τρέχετε κάθε φορά με 3 τρόπους:
 	-1) python3 domainblocker.py
 	-2) Δίνετε για μια και μόνο φορά:
 		 chmod +x domainblocker.py
@@ -8,10 +8,16 @@
 		 sudo ./domainblocker.py
 	-3) Μπορείτε να τοποθετήσετε το πρόγραμμα σε μια global τοποθεσία ώστε να είναι δυνατό να το τρέξετε πληκτρολογώντας:
 		 domainblocker
-	    Για να το κάνετε αυτό δώστε απλώς:
-		 sudo cp ~/domainblocker.py /usr/local/bin/domainblocker
-		 και έπειτα:
-		 sudo chmod +x /usr/local/bin/domainblocker
+	    Για να το κάνετε αυτό τρέξτε απλώς το αρχείο transporter.py:
+		 python3 transporter.py
 	    Και για να το τρέχετε κάθε φορά:
-		 sudo domainblocker
+		 sudo domainblocker			-(Βλ.Σχόλιο [2])
 Τα παραπάνω παραδείγματα ισχύουν αν έχετε το πρόγραμμα με όνομα domainblocker.py μέσα στο home σας.Αν θέλετε να χρησιμοποιήτε κάποιο άλλο όνομα απλώς κάντε μετονομασία το αρχείο και αντικαταστήστε στα παραδείγματα το "domainblocker.py" με το όνομα που έχετε ορίσει στο αρχείο.
+
+Σχόλιο [1]:
+	Μπορείτε επίσης να κάνετε χειροκίνητη αντιγραφή με τις εντολές:
+	sudo cp ~/domainblocker.py /usr/local/bin/domainblocker
+	και έπειτα:
+	sudo chmod +x /usr/local/bin/domainblocker
+Σχόλιο [2]:
+	Αντί για domainblocker τρέχετε το πρόγραμμα με "sudo [όνομα προγράμματος]".Όπου [όνομα προγράμματος] το όνομα το 		οποίο δώσατε στο transporter.py .
