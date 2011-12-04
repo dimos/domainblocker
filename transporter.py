@@ -3,7 +3,7 @@
 #
 #       transporter.py
 #       
-#       Copyright 2011 Dimos Poupos <dimosrc@gmail.com>
+#       Copyright 2011 Dimos Poupos <dimospoupos@gmail.com>
 #       
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
